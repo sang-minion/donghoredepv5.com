@@ -19,9 +19,9 @@
         </div>
         <div class="navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
             <ul class="nav navbar-nav navbar-left ">
-                <li class="hotline"><a href="tel:{{$hostline}}" title="host line">
+                <li class="hotline"><a href="tel:{{$hostline}}" title="hotline">
                         <img class="icon-phone" src="{{asset('resources/assets/media/smart2.png')}}"></img>
-                        <div><b>Hostline</b><br><span>{{Funclip::formatPhonenumber($hostline)}}</span></div>
+                        <div><b>Hotline</b><br><span>{{Funclip::formatPhonenumber($hostline)}}</span></div>
                     </a></li>
                 <li class="zalo">
                     <a href="tel:{{$zalo}}" title="zalo">

@@ -1,0 +1,77 @@
+body{
+    background-color: #000 !important;
+}
+#wrapper{
+    padding: 0px !important;
+}
+form {
+    background-color: #464646;
+    padding: 0px 0px;
+    margin-top: 10%;
+}
+.box-login h1{
+    text-align: center;
+}
+.section {
+    margin: 0px;
+    padding: 15px;
+    color: #fff;
+    width: 100%;
+}
+.title{
+    border-bottom: 1px solid #595959;
+    text-align: center;
+    padding:5px;
+    color: #ff3b3b;
+}
+.section-bottom{
+    margin: 0px;
+    padding: 5px 25px;
+    color: #fff;
+    width: 100%;
+    background-color: black;
+}
+.section-bottom a{
+    float: right;
+    color: #fff;
+}
+.section .input-group-addon {
+    background-color: #000;
+    border-radius: 0px;
+    border-color: transparent !important;
+}
+
+.section .input-group-addon i {
+    color: #fff
+}
+
+.section .form-control {
+    background-color: #000 !important;
+    border-radius: 0px;
+    border-left: 0px;
+    border-color: transparent;
+    color: #e3e3e3
+}
+
+.section .btn {
+    float: right;
+    background-color: #5cb85c;
+    border-radius: 0px;
+}
+
+.section .btn:hover {
+    color: #c00 !important;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.activechange {
+    background-color: #242424 !important;
+}
+
+.help-block {
+    color: #fff !important;
+}

@@ -344,6 +344,9 @@ ul.alert-dropdown {
 .frmAdd .head-permission,.frmAdd .head-permission ul,.frmAdd .head-permission ul li{
     padding:0px !important;
 }
+.frmAdd .content-permission ul li{
+    border-bottom: 1px solid;
+}
 .frmAdd .level-price{
     width: 20% !important;
     margin: 0px !important;

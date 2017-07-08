@@ -52,7 +52,7 @@ class admin
                 if (!in_array($action, $module_action)) {
                     $module_action[] = $action;
                     $data = array(
-                        'module_title' => $controller,
+                        'module_title' => $result->module_title,
                         'module_controller' =>  $controller,
                         'module_action' => serialize($module_action),
                         'module_status' => \CGlobal::status_show,

@@ -46,7 +46,7 @@ class RoleController extends BaseAdminController
         $arrModule = Module::getAll(array(), 0);
         $optionStatus = Utility::getOption($this->arrStatus,isset($data['role_status'])?$data['role_status']:\CGlobal::status_show);
         $optionAllowUL = Utility::getOption($this->arrAllowUL,isset($data['allow_upload'])?$data['allow_upload']:\CGlobal::status_show);
-        return view('Manager.role.add',['id'=>$id,'data'=>$data,'optionStatus'=>$optionStatus,'arrModule'=>$arrModule,'arrAllowUL'=>$this->arrAllowUL,'optionAllowUL'=>$optionAllowUL]);
+        return view('Manager.role.add',['id'=>$id,'data'=>$data,'optionStatus'=>$optionStatus,'arrModule'=>$arrModule,'arrAllowUL'=>$this->arrAllowUL,'optionAllowUL'=>$optionAllowUL,'arrAction'=>$this->arrAction]);
     }
     public function postItem(Request $request,$id=0){
         $this->validate($request,['role_title'=>'required|string',

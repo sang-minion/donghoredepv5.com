@@ -51,29 +51,29 @@
                         @foreach($module_action as $k=>$action)
                             <li id="sys_div_sort_other_{{$k}}">
                                 <div class="div_sort_order">
-                                    <input type="checkbox" name="module_action[]" value="{{$action}}" checked="checked" class="item_{{$action}}" id="module_action[{{$action}}]"/> {{$action}}
+                                    <input type="checkbox" name="module_action[]" value="{{$action}}" checked="checked" class="item_{{$action}}" id="module_action[{{$action}}]"/> {{isset($arrAction[$action])?$arrAction[$action]:$action}}
                                 </div>
                             </li>
                         @endforeach
                     @else
                         <li id="sys_div_sort_other_0">
                             <div class="div_sort_order">
-                                <input type="checkbox" name="module_action[]" value="listView" />listView
+                                <input type="checkbox" name="module_action[]" value="listView" />Danh sách
                             </div>
                         </li>
                         <li id="sys_div_sort_other_1">
                             <div class="div_sort_order">
-                                <input type="checkbox" name="module_action[]" value="getItem" />getItem
+                                <input type="checkbox" name="module_action[]" value="getItem" />thêm mới/cập nhật
                             </div>
                         </li>
                         <li id="sys_div_sort_other_2">
                             <div class="div_sort_order">
-                                <input type="checkbox" name="module_action[]" value="postItem"/>postItem
+                                <input type="checkbox" name="module_action[]" value="postItem"/>lưu thay đổi
                             </div>
                         </li>
                         <li id="sys_div_sort_other_3">
                             <div class="div_sort_order">
-                                <input type="checkbox" name="module_action[]" value="delete"/>delete
+                                <input type="checkbox" name="module_action[]" value="delete"/>xóa
                             </div>
                         </li>
                     @endif

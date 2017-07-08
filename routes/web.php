@@ -40,9 +40,10 @@ Auth::routes();
 
 Route::group(array('prefix' => 'admin', 'before' => '','middleware'=>'web'), function(){
 
+    Route::get('/', 'BaseAdminController@dashBoard')->name('admin.dashboard');
     Route::post('change-status.html', 'BaseAdminController@changeSTT')->name('admin.member_change_status');
 
-    Route::get('/', 'Manager\OrderController@listView')->name('admin.dashboard');
+//    Route::get('/', 'Manager\OrderController@listView')->name('admin.dashboard');
     Route::get('order', 'Manager\OrderController@listView')->name('admin.order');
     Route::get('order/edit/{id?}', 'Manager\OrderController@getItem')->name('admin.order_edit')->where('id', '[0-9]+');
     Route::post('order/edit/{id?}', 'Manager\OrderController@postItem')->name('admin.order_edit')->where('id', '[0-9]+');

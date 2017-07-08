@@ -42,7 +42,7 @@ class ModuleController extends BaseAdminController{
         $this->breadcrumb([['title'=>'Module','link'=>\route('admin.module'),'active'=>''],['title'=>$id==0?'thêm mới':'cập nhật','link'=>\route('admin.module_edit',['id'=>$id]),'active'=>'active']]);
         $data = $id>0?$data = Module::getById($id):array();
         $optionStatus = Utility::getOption($this->arrStatus,isset($data['module_status'])?$data['module_status']:-1);
-        return view('Manager.module.add',['id'=>$id,'data'=>$data,'optionStatus'=>$optionStatus]);
+        return view('Manager.module.add',['id'=>$id,'data'=>$data,'optionStatus'=>$optionStatus,'arrAction'=>$this->arrAction]);
     }
     public function postItem(Request $request,$id=0){
         $this->validate($request,['module_title'=>'required|string',

@@ -24,11 +24,18 @@ use PhpParser\Node\Expr\AssignOp\Mod;
 class BaseAdminController extends Controller
 {
     protected $user = array();
+    protected $arrAction =['listView'=>'Danh sách','getItem'=>'Chi tiết','postItem'=>'lưu thay đổi','delete'=>'xóa','changeSTT'=>'Ajax cập nhạt trạng thái',
+        'changeass'=>'đổi mật khẩu','profileUser'=>'Cá nhân','restore'=>'khôi phục'];
 
     public function __construct(){
         $this->middleware('admin');
     }
 
+    public function dashBoard(){
+        $this->menu();
+        $this->title('Dashboard');
+        return view('Manager.dashboard.view1');
+    }
     public function title($title_name){
         \Loader::loadTitle($title_name);
     }

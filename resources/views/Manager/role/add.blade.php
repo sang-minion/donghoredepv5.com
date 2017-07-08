@@ -38,7 +38,8 @@
                         <ul class="col-lg-12 col-md-12 col-sm-12" >
                             <li class="col-lg-12 col-md-12 col-sm-12 " >
                                 <div class=" col-md-3 col-sm-4 ">
-                                    {{$module['module_title']}}-{{$module['module_controller']}}
+                                    {{$module['module_title']}}
+                                    {{--{{$module['module_controller']}}--}}
                                 </div>
                                 <?php
                                 $module_action = array();
@@ -63,7 +64,7 @@
                                         ?>
                                         <div class=" col-md-2 col-sm-6">
                                             <input type="checkbox" name="access[{{$module['module_controller']}}][{{$action}}]" class="item_{{$action}}" id="access[{{$module['module_controller']}}][{{$action}}]" {{$str}}/>
-                                            <label for="access[{{$module['module_controller']}}][{{$action}}]" title="{{ucwords($action)}}">@if(isset($arrNamePermission[$action])) {{$arrNamePermission[$action]}} @else {{$action}} @endif</label>
+                                            <label for="access[{{$module['module_controller']}}][{{$action}}]" title="{{ucwords($action)}}">@if(isset($arrNamePermission[$action])) {{isset($arrAction[$arrNamePermission[$action]])?$arrAction[$arrNamePermission[$action]]:$arrNamePermission[$action]}} @else {{isset($arrAction[$action])?$arrAction[$action]:$action}} @endif</label>
                                         </div>
                                     @endforeach
                                 </div>

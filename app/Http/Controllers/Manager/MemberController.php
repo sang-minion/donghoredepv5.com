@@ -124,7 +124,6 @@ class MemberController extends BaseAdminController
         }
     }
     public function changeStatus(Request $request){
-
         $c = '';
         if(!empty($_POST)){
             $id = $request->has('id')?$request->id:0;

@@ -4,7 +4,7 @@
     box-shadow: 0px 5px 5px #777;
 }
 .menu .navbar-fixed-top .container{
-    padding: 0px;
+    /*padding: 0px;*/
 }
 
 .menu .collapse {
@@ -151,11 +151,14 @@
 	display:block !important;
 }
 @media(min-width :1200px){
+    .menu .navbar-fixed-top .container{
+        padding-left: 0px;
+    }
     .menu .navbar-fixed-top .navbar-right .item-menu{
         width: 11% !important;
     }
     .menu .navbar-fixed-top .navbar-right .menu-other{
-        width: 21.6% !important;
+        width: 22.6% !important;
     }
 }
 @media (max-width: 1199px) {
@@ -175,7 +178,12 @@
 	.menu .navbar-right .menu-other{
 		width:21.8%;
 	}
-
+    .menu .navbar-fixed-top .navbar-right .item-menu{
+        width: 12% !important;
+    }
+    .menu .navbar-fixed-top .navbar-right .menu-other{
+        width: 21.87% !important;
+    }
     .menu .logo {
         padding: 0px 6px !important;
         padding-inline-start: 10px !important;
@@ -214,7 +222,12 @@
 	.menu .navbar-right .menu-other{
 		width:20%;
 	}
-
+    .menu .navbar-fixed-top .navbar-right .item-menu{
+        width: 12% !important;
+    }
+    .menu .navbar-fixed-top .navbar-right .menu-other{
+        width: 15.1% !important;
+    }
     .menu .frmsearch {
         width: inherit;
     }

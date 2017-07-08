@@ -150,6 +150,14 @@
 .dropdown-menu .shown{
 	display:block !important;
 }
+@media(min-width :1200px){
+    .menu .navbar-fixed-top .navbar-right .item-menu{
+        width: 11% !important;
+    }
+    .menu .navbar-fixed-top .navbar-right .menu-other{
+        width: 21.6% !important;
+    }
+}
 @media (max-width: 1199px) {
     .menu {
         font-size: 12px;
@@ -167,12 +175,7 @@
 	.menu .navbar-right .menu-other{
 		width:21.8%;
 	}
-    .menu .navbar-fixed-top .navbar-right .item-menu{
-        width: 11% !important;
-    }
-    .menu .navbar-fixed-top .navbar-right .menu-other{
-        width: 21.6% !important;
-    }
+
     .menu .logo {
         padding: 0px 6px !important;
         padding-inline-start: 10px !important;

@@ -139,7 +139,7 @@ body {
     text-align: center;
     line-height: 1.75em;
     color: #fff;
-    background: #c50000;
+    background: #f86060;
     cursor: default;
     padding: 5px;
     margin: 0;
@@ -836,18 +836,6 @@ body {
     padding: 0px 5px;
 }
 
-.box-product .vote {
-    padding: 0px 5px;
-}
-
-.box-product .vote .item-vote {
-    color: #5d5d5d;
-}
-
-.box-product .vote .active {
-    color: #f14303;
-}
-
 .box-product .price {
     padding: 0px 10px;
     color: black;
@@ -865,3 +853,54 @@ body {
     font-weight: normal;
 }
 /*end box product*/
+/* show vote */
+.vote {
+    padding: 0px 5px;
+    font-size: 16px;
+}
+.vote .total-vote{
+    margin-left: 15px;
+}
+.vote .item-vote {
+    color: #5d5d5d;
+    cursor: pointer;
+    margin-right: 1px;
+}
+
+.vote .active {
+    color: #f14303;
+}
+/* show result vote*/
+.show-result-vote{
+    padding:0px 5px;
+}
+.show-result-vote li{
+    margin: 6px 0px;
+}
+.show-result-vote .show-total-vote{
+    width:200px;
+    padding: 0px 15px;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+}
+.show-result-vote .show-total-vote .show-percent{
+    background-color: #f14303;
+    display: inline-block;
+    height:15px;
+    cursor: pointer;
+    z-index:1;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    bottom: 6px;
+}
+.show-result-vote .show-total-vote .show-percent2{
+    background-color: #DDDDDD;
+    display: inline-block;
+    height:15px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: -15px;
+}

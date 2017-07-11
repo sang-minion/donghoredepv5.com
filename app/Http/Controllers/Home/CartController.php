@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Session;
 class CartController extends BaseHomController
 {
     public function __construct()    {
+        parent::__construct();
         \Loader::loadJS('backend/js/cart.js', \CGlobal::$postEnd);
     }
 

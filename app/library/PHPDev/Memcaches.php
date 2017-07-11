@@ -97,4 +97,8 @@ class Memcaches
     const CACHE_ALL_PARTNER   = 'cache_all_partner';
     const CACHE_PARTNER_ID    = 'cache_partner_id_';
     const CACHE_PARTNER_KEY    = 'cache_partner_key_';
+    //vote product
+    const CACHE_ALL_VOTE   = 'cache_all_vote';
+    const CACHE_VOTE_ID    = 'cache_vote_id_';
+    const CACHE_VOTE_IP    = 'cache_vote_key_';
 }

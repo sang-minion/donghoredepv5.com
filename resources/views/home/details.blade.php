@@ -22,7 +22,6 @@ use \App\model\Product;
                                 class="fa fa-angle-right"></i></a>@endif {{$product->product_title}}@else Không tìm
                 thấy nội dung bạn yêu cầu @endif</h5>
             <div class="col-md-9 col-sm-9 col-xs-12 col-left">
-
                 @if(isset($product)&&!empty($product))
                     <?php
                     $product_multi_media = $product->product_multi_media != '' ? unserialize($product->product_multi_media) : array();
@@ -74,9 +73,9 @@ use \App\model\Product;
                     @endif
                 @endif
                 <div class="product">
-					<div class="product-intro">
-					@include('home.partical_product_for_we')
-					</div>                    
+                    <div class="product-intro">
+                        @include('home.partical_product_for_we')
+                    </div>
                     @if(isset($product)&&!empty($product))
                         <div class=" product-center product-intro-1">
                             <h4 class="title-para">Vì sao bạn nên mua sản phẩm này ?</h4>
@@ -165,7 +164,8 @@ use \App\model\Product;
                                         <label for="txtName" class="control-label col-md-3 col-sm-2">Họ tên
                                             <i>*</i></label>
                                         <div class=" col-md-9 col-sm-10">
-                                            <input id="txtName" type="text" class="form-control" name="txtName" placeholder="Họ và tên"
+                                            <input id="txtName" type="text" class="form-control" name="txtName"
+                                                   placeholder="Họ và tên"
                                                    value="{{isset($member['name'])?$member['name']: old('txtName') }}"
                                                    required>
                                             @if (isset($errors)&&$errors->has('txtName'))
@@ -194,7 +194,8 @@ use \App\model\Product;
                                         <label for="txtEmail" class="control-label col-md-3 col-sm-2">Địa chỉ
                                             mail</label>
                                         <div class=" col-md-9 col-sm-10">
-                                            <input id="txtEmail" type="email" class="form-control " name="txtEmail" placeholder="abc@gmail.com"
+                                            <input id="txtEmail" type="email" class="form-control " name="txtEmail"
+                                                   placeholder="abc@gmail.com"
                                                    value="{{isset($member['email'])?$member['email']: old('txtEmail') }}">
                                             @if (isset($errors)&&$errors->has('txtEmail'))
                                                 <span class="help-block">
@@ -207,7 +208,8 @@ use \App\model\Product;
                                         <label for="txtAddress" class="control-label col-md-3 col-sm-2">Địa chỉ
                                             <i>*</i></label>
                                         <div class=" col-md-9 col-sm-10">
-                                <textarea id="txtAddress" class="form-control " name="txtAddress" placeholder="Địa chỉ cụ thể thuận tiện nhất bạn có thể nhận hàng"
+                                <textarea id="txtAddress" class="form-control " name="txtAddress"
+                                          placeholder="Địa chỉ cụ thể thuận tiện nhất bạn có thể nhận hàng"
                                           rows="2">{{isset($member['address'])? $member['address']:old('txtAddress')}}</textarea>
                                             @if (isset($errors)&&$errors->has('txtEmail'))
                                                 <span class="help-block">
@@ -219,7 +221,8 @@ use \App\model\Product;
                                     <div class="form-group{{isset($errors)&& $errors->has('txtMessage') ? ' has-error' : '' }}">
                                         <label for="txtMessage" class="control-label col-md-3 col-sm-2">Ghi chú</label>
                                         <div class=" col-md-9 col-sm-10">
-                                <textarea id="txtMessage" class="form-control " name="txtMessage" placeholder="VD: địa chỉ giao hàng, thời gian nhận hàng, màu dây ..."
+                                <textarea id="txtMessage" class="form-control " name="txtMessage"
+                                          placeholder="VD: địa chỉ giao hàng, thời gian nhận hàng, màu dây ..."
                                           rows="3">{{old('txtMessage')}}</textarea>
                                             <button type="submit" name="txtSubmit" id="submitPaymentOrder"
                                                     class="btn">Gửi đơn hàng
@@ -235,6 +238,7 @@ use \App\model\Product;
                         @include('home.partical_comment_product',['CMTPRD'=>$CMTPRD,'member'=>$member,'admin'=>$admin,'prdid'=>$product->product_id])
                     @endif
                 </div>
+
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 product col-right-same-product">
                 @if(isset($banner_right)&&!empty($banner_right[0]))
@@ -256,6 +260,16 @@ use \App\model\Product;
                     </div>
                 </div>
             </div>
+                @if(isset($ProductSeen)&&!empty($ProductSeen))
+                    <div class="product">
+                        <div class="product-center">
+                            <div class="product-seen">
+                                <h4 class="title-product-seen">Sản đã phẩm xem</h4>
+                                @include('home.partical_list_product',['listPD'=>$ProductSeen])
+                            </div>
+                        </div>
+                    </div>
+                @endif
         </div>
     </div>
 @endsection

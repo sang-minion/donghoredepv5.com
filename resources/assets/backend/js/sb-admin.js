@@ -31,7 +31,7 @@ ADMIN = {
                 jAlert('Vui lòng chọn ít nhất 1 bản ghi để xóa!', 'Thông báo');
                 return false;
             } else {
-                jConfirm('Bạn muốn xóa [OK]:Đồng ý [Cancel]:Bỏ qua?)', 'Xác nhận', function (r) {
+                jConfirm('Bạn muốn xóa </br> [OK]:Đồng ý [Cancel]:Bỏ qua?', 'Xác nhận', function (r) {
                     if (r) {
                         jQuery('form#formListItem').submit();
                         return true;
@@ -160,7 +160,7 @@ ADMIN = {
                 jAlert('Vui lòng chọn ít nhất 1 bản ghi để khôi phục!', 'Thông báo');
                 return false;
             } else {
-                jConfirm('Bạn muốn khôi phục [OK]:Đồng ý [Cancel]:Bỏ qua?)', 'Xác nhận', function (r) {
+                jConfirm('Bạn muốn khôi phục </br> [OK]:Đồng ý [Cancel]:Bỏ qua ?', 'Xác nhận', function (r) {
                     if (r) {
                         jQuery('#formListItem').attr("action", BASE_URL + "admin/trash/restore");
                         jQuery('#formListItem').submit();
@@ -206,63 +206,6 @@ ADMIN = {
             })
         });
     },
-    changeSTTMember: function () {
-        jQuery(document).on('click', '#changeSTTMember', function () {
-            var id = jQuery(this).attr('dataid');
-            var stt = jQuery(this).attr('datastt');
-            var cf = -1;
-            var token = jQuery('meta[name="csrf-token"]').attr('content');
-            var url = BASE_URL + 'admin/member/change-status.html';
-            if(id>0&&stt>-1) {
-                if (stt == 0) {
-                    jConfirm('Phê duyệt [OK]:Đồng ý [Cancel]:Bỏ qua?)', 'Phê duyệt thành viên', function (r) {
-                        if (r) {
-                            cf = 1;
-                        } else {
-                            cf = 4;
-                        }
-                        sendAjax(id,cf);
-                    });
-                } else {
-                    if (stt == 1) {
-                        cf = 4;
-                    }
-                    if (stt == 4) {
-                        cf = 1;
-                    }
-                    sendAjax(id,cf);
-                }
-            }
-            function sendAjax (id,cf) {
-                jQuery.ajax({
-                    type: "POST",
-                    url: url,
-                    data: "_token=" + encodeURI(token) + "&id=" + encodeURI(id) + "&stt=" + encodeURI(cf),
-                    success: function (data) {
-                        if(data==1){
-                            jQuery(document).find('#changeSTTMember').each(function () {
-                                if(jQuery(this).attr('dataid')==id){
-                                    var cls = '';
-                                    if(jQuery(this).hasClass('green')) cls='green';
-                                    if(jQuery(this).hasClass('red')) cls='red';
-                                    if(jQuery(this).hasClass('black')) cls='black';
-                                    jQuery(this).removeClass(cls);
-                                    jQuery(this).attr('datastt', cf);
-                                    if (cf == 4) {
-                                        jQuery(this).addClass('black');
-                                    }
-                                    if (cf == 1) {
-                                        jQuery(this).addClass('green')
-                                    }
-                                }
-                            });
-                            return;
-                        }
-                    }
-                });
-            }
-        });
-    },
 	changeSTT:function () {
         jQuery(document).on('click', '.changestt', function () {
             var id = jQuery(this).attr('dataid');
@@ -273,7 +216,7 @@ ADMIN = {
             var url = BASE_URL + 'admin/change-status.html';
             if($(this).attr('datamulti')==1){
                 if (stt == 0) {
-                    jConfirm('Phê duyệt [OK]:Đồng ý [Cancel]:Bỏ qua(Ẩn)?)', 'Xác nhận phê duyệt', function (r) {
+                    jConfirm('Phê duyệt </br> [OK]:Đồng ý [Cancel]:Bỏ qua(Ẩn) ?', 'Xác nhận phê duyệt', function (r) {
                         if (r) {
                             cf = 1;
                         } else {

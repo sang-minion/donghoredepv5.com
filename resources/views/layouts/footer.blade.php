@@ -40,7 +40,7 @@ use \App\Http\Controllers\Home\CartController ;
 </section>
 <section class="footer-1">
     <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8  box-like-facebook">
-		{!!isset($fanpageFB)&&!empty($fanpageFB)? stripslashes($fanpageFB['static_content']):''!!}
+		{!!isset($fanpageFB)&&!empty($fanpageFB)&&$fanpageFB->static_status==\CGlobal::status_show? stripslashes($fanpageFB['static_content']):''!!}
     </div>
 </section>
 <section class="footer-2">
@@ -78,9 +78,9 @@ use \App\Http\Controllers\Home\CartController ;
             Copyright © {{date('Y',time())}} by Đồng Hồ Rẻ Đẹp
         </div>
         <div class="col-md-3 col-sm-3 list-contact">
-            <div class="item it-facebook"><a href="{{isset($linkFB)&&!empty($linkFB)?$linkFB['static_content']:'#'}}"><i class="fa fa-facebook"></i></a></div>
-            <div class="item it-google"><a href="{{isset($linkGG)&&!empty($linkGG)?$linkGG['static_content']:'#'}}"><i class="fa fa-google-plus"></i></a></div>
-            <div class="item it-youtube"><a href="{{isset($linkYoutube)&&!empty($linkYoutube)?$linkYoutube['static_content']:'#'}}"><i class="fa fa-youtube-play"></i></a></div>
+            <div class="item it-facebook"><a href="{{isset($linkFB)&&!empty($linkFB)&&$linkFB->static_status==\CGlobal::status_show?$linkFB['static_content']:'#'}}"><i class="fa fa-facebook"></i></a></div>
+            <div class="item it-google"><a href="{{isset($linkGG)&&!empty($linkGG)&&$linkGG->static_status==\CGlobal::status_show?$linkGG['static_content']:'#'}}"><i class="fa fa-google-plus"></i></a></div>
+            <div class="item it-youtube"><a href="{{isset($linkYoutube)&&!empty($linkYoutube)&&$linkYoutube->static_status==\CGlobal::status_show?$linkYoutube['static_content']:'#'}}"><i class="fa fa-youtube-play"></i></a></div>
         </div>
         <div class="col-md-6 col-sm-6 contact-right">
             <div>Tổng:
@@ -111,6 +111,7 @@ use \App\Http\Controllers\Home\CartController ;
 	</div>
 @endif
 <a class="btn-top" href="javascript:void(0);" title="Top" style="display: none"></a>
-@if(isset($boxChat)&&!empty($boxChat))
-{!! stripslashes($boxChat['static_content'])!!}
+@if(isset($boxChat[0])&&!empty($boxChat[0])&&$boxChat[0]->static_status==\CGlobal::status_show)
+{!! stripslashes($boxChat[0]['static_content'])!!}
 @endif
+{{--<script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=88d951cc87fb951a4ebe7eb8a8406ed8&data=eyJzc29faWQiOjQ5MjAyODgsImhhc2giOiIzN2IyY2M1YzE2OTY2ZTQ1NDhmODNjYzA4MTEwNzM5MiJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>--}}

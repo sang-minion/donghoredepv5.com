@@ -9,6 +9,59 @@
 <div class="col-md-3 col-sm-3 col-xs-12 box-comment">
     <div class="col-md-3 col-sm-3 col-xs-12 col-comment">
         <h4 class="title">Đánh giá & Bình luận</h4>
+        <div class="vote-change">
+            <h5 class="vote"> Đánh giá *
+                <i class="fa fa-star item-vote active" rel="1" title="Vote 1 sao"></i>
+                <i class="fa fa-star item-vote active" rel="2" title="Vote 2 sao"></i>
+                <i class="fa fa-star item-vote active" rel="3" title="Vote 3 sao"></i>
+                <i class="fa fa-star item-vote active" rel="4" title="Vote 4 sao"></i>
+                <i class="fa fa-star item-vote active" rel="5" title="Vote 5 sao"></i>
+                <span class="total-vote">tổng</span>
+            </h5>
+            <ul class="show-result-vote">
+                <li id="1star">
+                    <span>1 sao</span>
+                    <span class="show-total-vote">
+                        <span class="show-percent"></span>
+                        <span class="show-percent2"></span>
+                    </span>
+                    <span class="count-num-start">0</span>
+                </li>
+                <li id="2star">
+                    <span>2 sao</span>
+                    <span class="show-total-vote">
+                        <span class="show-percent"></span>
+                        <span class="show-percent2"></span>
+                    </span>
+                    <span class="count-num-start">0</span>
+                </li>
+                <li id="3star">
+                    <span>3 sao</span>
+                    <span class="show-total-vote">
+                        <span class="show-percent"></span>
+                        <span class="show-percent2"></span>
+                    </span>
+                    <span class="count-num-start">0</span>
+                </li>
+                <li id="4star">
+                    <span>4 sao</span>
+                    <span class="show-total-vote">
+                        <span class="show-percent"></span>
+                        <span class="show-percent2"></span>
+                    </span>
+                    <span class="count-num-start">0</span>
+                </li>
+                <li id="5star">
+                    <span>5 sao</span>
+                    <span class="show-total-vote">
+                        <span class="show-percent"></span>
+                        <span class="show-percent2"></span>
+                    </span>
+                    <span class="count-num-start">0</span>
+                </li>
+            </ul>
+        </div>
+        <input type="hidden" id="active-vote" value="{{ !empty($avtiveVote)?$avtiveVote:0}}">
         <input type="hidden" id="check" value="{{ !empty($member)?$member['member_id']:!empty($admin)?$admin['user_id']:0}}">
         <input type="hidden" id="roleck" value="{{ !empty($member)?0:!empty($admin)?$admin['user_role_id']:0}}">
         <input type="hidden" id="pidprd" value="{{isset($prdid)?$prdid:0}}">
@@ -40,7 +93,7 @@
         @if(isset($CMTPRD)&&!empty($CMTPRD))
             @foreach($CMTPRD as $k=>$item)
                 @if($item->comment_parent_id==0)
-                    <div class="col-md-12 col-sm-12 col-xs-12 rows-comment-s" id="{{$item->comment_id}}">
+                    <div class="col-md-12 col-sm-12 col-xs-12 rows-comment-s" id="{{$item->comment_id}}" datauid="{{$item->comment_user_id}}" dataip="{{$item->comment_ip_address}}">
                         <i class="avt">{{$item->comment_name[0]}}</i>
                         <div class="comments" id="cmtid{{$item->comment_id}}">
                             <h5 class="nickname">{{$item->comment_name}}</h5>

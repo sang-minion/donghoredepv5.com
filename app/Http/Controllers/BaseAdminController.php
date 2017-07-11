@@ -29,6 +29,8 @@ class BaseAdminController extends Controller
 
     public function __construct(){
         $this->middleware('admin');
+        \Loader::loadCSS('backend/css/sb-admin.css', \CGlobal::$postHead);
+        \Loader::loadJS('backend/js/sb-admin.js', \CGlobal::$postHead);
     }
 
     public function dashBoard(){
@@ -44,7 +46,7 @@ class BaseAdminController extends Controller
         $rName = Route::current()->getName();
         $arMenu = array();
         $arMenu[] = array('title' => 'Đơn hàng', 'link' => route('admin.order'), 'icon' => 'fa-globe fa-admin', 'active' => $this->checkRouteName($rName, 'admin.order') ? 'active' : '');
-        $arMenu[] = array('title' => 'Live chat', 'link' => route('admin.live_chat'), 'icon' => 'fa-comments fa-admin', 'active' => $this->checkRouteName($rName, 'admin.live_chat') ? 'active' : '');
+        $arMenu[] = array('title' => 'Hỗ trợ online', 'link' => route('admin.live_chat'), 'icon' => 'fa-comments fa-admin', 'active' => $this->checkRouteName($rName, 'admin.live_chat') ? 'active' : '');
         $arMenu[] = array('title' => 'Khách hàng', 'link' => 'javascript:void(0)', 'icon' => 'fa-angle-down',
             'submenu' => array(
                 //array('title' => 'Thành viên', 'link' => route('admin.member'), 'icon' => 'fa-user-plus fa-admin', 'active' => $this->checkRouteName($rName, 'admin.member') ? 'active' : ''),
@@ -100,66 +102,79 @@ class BaseAdminController extends Controller
             if($type>0&&$id>0&&$stt!=-1){
                 if($type==1){
                     if(CommentProduct::updateItem(['comment_status'=>$stt],$id)){
+                        CommentProduct::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==2){
                     if(Banner::updateItem(['Banner_status'=>$stt],$id)){
+                        Banner::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==3){
                     if(Product::updateItem(['product_status'=>$stt],$id)){
+                        Product::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==4){
                     if(Category::updateItem(['category_status'=>$stt],$id)){
+                        Category::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==5){
                     if(News::updateItem(['news_status'=>$stt],$id)){
+                        News::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==6){
                     if(StaticInfor::updateItem(['static_status'=>$stt],$id)){
+                        StaticInfor::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==7){
                     if(Users::updateItem(['user_status'=>$stt],$id)){
+                        Users::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==8){
                     if(Role::updateItem(['role_status'=>$stt],$id)){
+                        Role::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==9){
                     if(Module::updateItem(['module_status'=>$stt],$id)){
+                        Module::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==10){
                     if(CommentHome::updateItem(['cmt_status'=>$stt],$id)){
+                        CommentHome::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==11){
                     if(Gift::updateItem(['gift_status'=>$stt],$id)){
+                        Gift::removeCache($id);
                         $c=1;
                     }
                 }
                 if($type==12){
                     if(Member::updateItem(['member_status'=>$stt],$id)){
+                        Member::removeCache($id);
                         $c=1;
                     }
                 }
 				if($type==13){
                     if(Partner::updateItem(['partner_status'=>$stt],$id)){
+                        Partner::removeCache($id);
                         $c=1;
                     }
                 }

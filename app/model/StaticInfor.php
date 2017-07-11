@@ -32,7 +32,7 @@ class StaticInfor extends Model
             Cache::forget(\Memcaches::CACHE_ALL_STATIC);
             Cache::forget(\Memcaches::CACHE_STATIC_KEY . $key);
         }
-        if ($key!=''){
+        if ($parentKey!=''){
             Cache::forget(\Memcaches::CACHE_ALL_STATIC);
             Cache::forget(\Memcaches::CACHE_STATIC_PARENT_KEY . $parentKey);
         }
@@ -100,7 +100,7 @@ class StaticInfor extends Model
     }
     public static function getAllByParentKey($parentKey='', $limit = 0)
     {
-        $rs = \Memcaches::CACHE_ON ? Cache::get(\Memcaches::CACHE_STATIC_PARENT_KEY) : array();
+        $rs = \Memcaches::CACHE_ON ? Cache::get(\Memcaches::CACHE_STATIC_PARENT_KEY.$parentKey) : array();
         $rs  = array();
         if (empty($rs)) {
             try {
@@ -120,7 +120,7 @@ class StaticInfor extends Model
                     $rs = $query->get();
                 }
                 if ($rs && \Memcaches::CACHE_ON) {
-                    Cache::put(\Memcaches::CACHE_STATIC_PARENT_KEY, $rs, \Memcaches::CACHE_TIME_TO_LIVE_ONE_MONTH);
+                    Cache::put(\Memcaches::CACHE_STATIC_PARENT_KEY.$parentKey, $rs, \Memcaches::CACHE_TIME_TO_LIVE_ONE_MONTH);
                 }
             } catch (\PDOException $E) {
                 throw new \PDOException();

@@ -26,7 +26,7 @@
     <link href="{{ asset('resources/assets/focus/css/reset.css') }}" rel="stylesheet">
     <link href="{{ asset('resources/assets/libs/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('resources/assets/backend/css/sb-admin.css') }}" rel="stylesheet">
+    {!! CGlobal::$extraHeaderCSS !!}
 
     <script type="text/javascript">
         var BASE_URL = "{{config('app.base_url')}}";
@@ -34,10 +34,9 @@
     <script src="{{ asset('resources/assets/focus/js/app.js') }}"></script>
     <script src="{{ asset('resources/assets/focus/js/reset.js') }}"></script>
     <script src="{{ asset('resources/assets/focus/js/focus.js') }}"></script>
-    <script src="{{ asset('resources/assets/backend/js/sb-admin.js') }}"></script>
 
-    {!! CGlobal::$extraHeaderCSS !!}
     {!! CGlobal::$extraHeaderJS !!}
+
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

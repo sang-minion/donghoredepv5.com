@@ -14,6 +14,7 @@ class BaseHomController extends Controller
 {
     public function __construct()
     {
+        \Loader::loadCSS('backend/css/home.css',\CGlobal::$postHead);
     }
 
     public function menu($active='')
@@ -43,17 +44,21 @@ class BaseHomController extends Controller
         $chinhsachChung = StaticInfor::getAllByParentKey(\CGlobal::key_chinh_sach_chung,100);
         $chinhanhdaily = StaticInfor::getAllByParentKey(\CGlobal::key_chi_nhanh_dai_ly,100);
 		$fanpageFB = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_fanpage_fabook));
-		$boxChat = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_box_chat_support));
+		$boxChat = StaticInfor::getAllByParentKey(\CGlobal::key_box_chat_support,1);
 		$linkFB = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_link_facebook));
 		$linkGG = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_link_google));
 		$linkYoutube = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_kenh_youtube));
 		$flagCounter = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_counter));
 		
-        return ['menu'=>$arMenu,'hostline'=>isset($hostline->static_content)?$hostline->static_content:\CGlobal::$txt_hostline,
-            'zalo'=>isset($zalo->static_content)?$zalo->static_content:\CGlobal::$txt_zalo,
-            'footer_left'=>isset($footer_left->static_content)?$footer_left->static_content:'',
+        return ['menu'=>$arMenu,'hostline'=>isset($hostline->static_content)&&$hostline->static_status==\CGlobal::status_show?$hostline->static_content:\CGlobal::$txt_hostline,
+            'zalo'=>isset($zalo->static_content)&&$hostline->static_status==\CGlobal::status_show?$zalo->static_content:\CGlobal::$txt_zalo,
+            'footer_left'=>isset($footer_left->static_content)&&$hostline->static_status==\CGlobal::status_show?$footer_left->static_content:'',
             'hotroKH'=>$hotroKH,'chinhsachChung'=>$chinhsachChung,'maps'=>$chinhanhdaily,
-			'fanpageFB'=>$fanpageFB,'boxChat'=>$boxChat,'linkFB'=>$linkFB,'linkGG'=>$linkGG,'linkYoutube'=>$linkYoutube,
+			'fanpageFB'=>$fanpageFB,
+            'boxChat'=>$boxChat,
+            'linkFB'=>$linkFB,
+            'linkGG'=>$linkGG,
+            'linkYoutube'=>$linkYoutube,
 			'flagCounter'=>$flagCounter];
     }
 

@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Session;
 
 class StaticController extends BaseAdminController{
     protected $arrStatus = array(-1 => 'Chọn trạng thái', \CGlobal::status_show => 'Hiện', \CGlobal::status_hide => 'Ẩn');
-    protected $arrKey = array(-1 => 'Chọn danh mục', \CGlobal::key_chinh_sach_chung => 'Chính sách chung', \CGlobal::key_ho_tro_khach_hang => 'Hỗ trợ khách hàng',\CGlobal::key_chi_nhanh_dai_ly=>'Chi nhánh và đại lý');
+    protected $arrKey = array(-1 => 'Chọn danh mục',
+        \CGlobal::key_chinh_sach_chung => 'Chính sách chung',
+        \CGlobal::key_ho_tro_khach_hang => 'Hỗ trợ khách hàng',
+        \CGlobal::key_chi_nhanh_dai_ly=>'Chi nhánh và đại lý',
+        \CGlobal::key_live_chat=>'live chat hỗ trợ khách hàng',
+        \CGlobal::key_box_chat_support=>'hộp chat cho khách nhập liệu');
     public function __construct(){
         parent::__construct();
         //$arSP = Category::getAll(['category_parent_id'=>Category::getIdByKeyword(\CGlobal::key_ho_tro_khach_hang)]);
@@ -36,6 +41,8 @@ class StaticController extends BaseAdminController{
         //    $i = StaticInfor::getById(StaticInfor::getIdByKeyword($item->category_keyword));
          //   StaticInfor::updateItem(['static_parent_key'=>\CGlobal::key_chi_nhanh_dai_ly],$i['static_id']);
         //}
+//        StaticInfor::updateItem(['static_parent_key'=>\CGlobal::key_box_chat_support],StaticInfor::getIdByKeyword(\CGlobal::key_box_chat_support));
+//        StaticInfor::updateItem(['static_parent_key'=>\CGlobal::key_live_chat],StaticInfor::getIdByKeyword(\CGlobal::key_live_chat));
     }
     public function listView(Request $request){
         $this->menu();

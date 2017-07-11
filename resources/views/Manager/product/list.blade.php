@@ -126,7 +126,7 @@
                             <th width="15%">Danh mục</th>
                             <th width="15%">Nhãn hiệu</th>
                             <th width="10%">Giá bán</th>
-                            <!--<th width="10">Thứ tự</th>-->
+                            <th width="10">Thứ tự</th>
                             <th width="10">Ngày tạo</th>
                             <th width="1%"><i class="fa fa-circle fa-admin"></i></th>
                             <th width="1%"><i class="fa fa-edit fa-admin"></i></th>
@@ -155,7 +155,7 @@
                                     @endforeach
                                 </td>
                                 <td>{{Funclip::numberFormat($item->product_price)}}đ</td>
-                                <!--<td>{{$item->product_order_no}}</td>-->
+                                <td>{{$item->product_order_no}}</td>
                                 <td>{{date('d/m/Y',$item->product_created)}}</td>
                                 <td>@if($item->product_status == CGlobal::status_show)
                                         <i class="fa fa-circle fa-admin green changestt" dataid="{{$item->product_id}}" datastt="{{$item->product_status}}" datatype="3" datamuti="0" title="click để thay đổi trạng thái"></i>

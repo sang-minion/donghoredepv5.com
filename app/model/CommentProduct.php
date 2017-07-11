@@ -29,7 +29,8 @@ class CommentProduct extends Model
         'comment_phone',
         'comment_content',
 		'comment_created',
-		'comment_status');
+		'comment_status',
+        'comment_ip_address');
 
     public static function removeCache($id=0,$key=0){
         if ($id>0){

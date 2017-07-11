@@ -93,7 +93,11 @@ class Product extends Model
                 $query->where('product_status',$search['product_status']);
             }
             $total = $query->count();
-            $query->orderby('product_id','desc');
+            if(isset($search['orderby'])&&!empty($search['orderby'])){
+                $query->orderby($search['orderby'][0],$search['orderby'][1]);
+            }else{
+                $query->orderby('product_id','desc');
+            }
             $fil_get = isset($search['fil_get'])&&$search['fil_get']!=''?explode(',',trim($search['fil_get'])):array();
             if (!empty($fil_get)){
                 $rs = $query->take($limit)->skip($offset)->get($fil_get);

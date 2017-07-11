@@ -35,6 +35,7 @@ Route::post('dat-hang-one.html',array('as'=>'dathang1','uses'=>'Home\CartControl
 Route::get('cam-on-da-dat-hang.html',array('as'=>'camondathang','uses'=>'Home\CartController@pageThanksBuy'));
 Route::post('gia-san-pham.html',array('as'=>'giasanpham','uses'=>'Home\CartController@getPrice'));
 Route::post('post-comment.html',array('as'=>'comment','uses'=>'Home\HomeController@comment'));
+Route::post('post-vote.html',array('as'=>'vote','uses'=>'Home\HomeController@vote'));
 // admin
 Auth::routes();
 

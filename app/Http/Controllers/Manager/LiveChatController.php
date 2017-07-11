@@ -23,7 +23,7 @@ class LiveChatController extends BaseAdminController
         $this->menu();
         $this->title('Live chat chăm sóc khách hàng');
         $this->breadcrumb([['title' => 'Live chat chăm sóc khách hàng', 'link' => route('admin.live_chat'), 'active' => 'active']]);
-        $chat = StaticInfor::getById(StaticInfor::getIdByKeyword(\CGlobal::key_live_chat));
+        $chat = StaticInfor::getAllByParentKey(\CGlobal::key_live_chat,1);
         return view('Manager.live_chat.live1',['chat'=>$chat]);
     }
 
